@@ -151,7 +151,7 @@
       return undefined;
     }
   }
-  console.log(allergyTable);
+ 
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
