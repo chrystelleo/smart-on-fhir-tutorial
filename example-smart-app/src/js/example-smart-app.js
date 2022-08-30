@@ -66,7 +66,7 @@
             if(allergies[i].reaction !== undefined){              
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
                 reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
-                console.log(allergies[i].reaction[j].manifestation[0].text);
+                console.log("reactiion: "+allergies[i].reaction[j].manifestation[0].text);
               }
               allergyTable += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactionStr.join(", ")+"</td></tr>";
             }
@@ -75,7 +75,6 @@
             }
           }
           allergyTable =+ "</table>";
-          console.log(allergyTable);
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
