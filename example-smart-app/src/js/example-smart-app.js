@@ -22,18 +22,19 @@
                       }
                     }
                   });
-        /*var allergies = smart.patient.api.fetchAll({
+        var alg = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     query: {
-                      code: {
-                        clinical-status=active
-                      }
+                      "clinical-status": 'active'
                     }
-                  });*/
+                  });    
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, alg).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, alg).done(function(patient, obv, allergies) {
+            console.log(patient);
+            console.log(allergies);
+            console.log(obv);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -76,7 +77,6 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
-          p.weight = allergyTable;
           ret.resolve(p);
         });
       } else {
