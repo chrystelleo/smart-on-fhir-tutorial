@@ -58,9 +58,13 @@
           var weight = byCodes('29463-7');
           var allergyTable = "<table>";
           var allergyLen = allergies.length;
+          console.log(allergyTable);
+          console.log(allergyLen);
+          console.log(allergies[1].reaction);
           for(var i=0;i<allergyLen;i++){
             var reactionStr = [];
             if(allergies[i].reaction !== undefined){
+              console.log(allergies[i].reaction);
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
                 reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
               }
