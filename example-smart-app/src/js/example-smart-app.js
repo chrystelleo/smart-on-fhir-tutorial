@@ -33,6 +33,7 @@
 
         $.when(pt, obv, alg).done(function(patient, obv, allergies) {
             console.log(patient);
+            console.log(alg);
             console.log(allergies);
             console.log(obv);
           var byCodes = smart.byCodes(obv, 'code');
@@ -55,6 +56,8 @@
           var spo2 = byCodes('2708-6');
           var chol = byCodes('32309-7');
           var weight = byCodes('29463-7');
+          var allergyTable = "<table>";
+          var allergyLen = allergies.length;
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
