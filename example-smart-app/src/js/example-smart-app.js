@@ -22,6 +22,14 @@
                       }
                     }
                   });
+        var allergies = smart.patient.api.fetchAll({
+                    type: 'AllergyIntolerance',
+                    query: {
+                      code: {
+                        clinical-status=active
+                      }
+                    }
+                  });
 
         $.when(pt, obv).fail(onError);
 
@@ -68,7 +76,7 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
-
+          p.weight = allergyTable;
           ret.resolve(p);
         });
       } else {
