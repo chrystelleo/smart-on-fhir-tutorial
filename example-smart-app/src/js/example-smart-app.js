@@ -33,8 +33,8 @@
 
         $.when(pt, obv, alg).done(function(patient, obv, allergies) {
             console.log(patient);
-            console.log(allergies);
-            console.log(obv);
+            //console.log(allergies);
+            //console.log(obv);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -95,7 +95,7 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
-          p.alg = allergyTable;
+          p.allergies = allergyTable;
           ret.resolve(p);
         });
       } else {
@@ -123,7 +123,7 @@
       spo2: {value: ''},
       chol: {value: ''},
       weight: {value: ''},
-      alg: {value: ''},
+      allergies: {value: ''},
     };
   }
 
@@ -171,7 +171,7 @@
     $('#spo2').html(p.spo2);
     $('#chol').html(p.chol);
     $('#weight').html(p.weight);
-    $('#alg').html(p.alg);
+    $('#allergies').html(p.allergies);
   };
 
 })(window);
