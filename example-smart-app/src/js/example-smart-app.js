@@ -70,11 +70,12 @@
               }
               allergyTable += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactionStr.join(", ")+"</td></tr>";
             }
-            if(allergyLen ===0){
+            if(allergyLen === 0){
                 allergyTable =+ "<tr><td>No Allergies Documented</td></tr>";
             }
           }
           allergyTable =+ "</table>";
+          console.log(allergyTable);
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
