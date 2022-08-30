@@ -60,11 +60,11 @@
           console.log(allergyLen);
           for(var i=0;i<allergyLen;i++){
             var reactionStr = [];
-            console.log(allergies[i].code.text);
+            //console.log(allergies[i].code.text);
             if(allergies[i].reaction !== undefined){              
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
                 reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
-                console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text);
+                //console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text);
               }
               allergyTable += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactionStr.join(", ")+"</td></tr>";
               console.log(" Allergy code: "+allergies[i].code.text+" Reaction: "+reactionStr.join(", "));
