@@ -22,14 +22,14 @@
                       }
                     }
                   });
-        var allergies = smart.patient.api.fetchAll({
+        /*var allergies = smart.patient.api.fetchAll({
                     type: 'AllergyIntolerance',
                     query: {
                       code: {
                         clinical-status=active
                       }
                     }
-                  });
+                  });*/
 
         $.when(pt, obv).fail(onError);
 
