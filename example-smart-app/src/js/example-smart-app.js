@@ -17,7 +17,7 @@
                       code: {
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|85354-9', 
-                              'http://loinc.org|8310-5', 'http://loinc.org|20564-1',
+                              'http://loinc.org|8310-5', 'http://loinc.org|2708-6',
                               'http://loinc.org|32309-7', 'http://loinc.org|29463-7']
                       }
                     }
@@ -43,7 +43,7 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           var tmp = byCodes('8310-5');
-          var spo2 = byCodes('20564-1');
+          var spo2 = byCodes('2708-6');
           var chol = byCodes('32309-7');
           var weight = byCodes('29463-7');
 
