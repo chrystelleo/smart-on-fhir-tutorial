@@ -17,7 +17,8 @@
                       code: {
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|85354-9', 
-                              'http://loinc.org|8310-5']
+                              'http://loinc.org|8310-5', 'http://loinc.org|20564-1',
+                              'http://loinc.org|32309-7', 'http://loinc.org|29463-7']
                       }
                     }
                   });
@@ -42,6 +43,9 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
           var tmp = byCodes('8310-5');
+          var spo2 = byCodes('20564-1');
+          var chol = byCodes('32309-7');
+          var weight = byCodes('29463-7');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -61,6 +65,9 @@
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           p.tmp = getQuantityValueAndUnit(tmp[0]);
+          p.spo2 = getQuantityValueAndUnit(spo2[0]);
+          p.chol = getQuantityValueAndUnit(chol[0]);
+          p.weight = getQuantityValueAndUnit(weight[0]);
 
           ret.resolve(p);
         });
@@ -86,6 +93,9 @@
       ldl: {value: ''},
       hdl: {value: ''},
       tmp: {value: ''},
+      spo2: {value: ''},
+      chol: {value: ''},
+      weight: {value: ''},
     };
   }
 
@@ -130,6 +140,9 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#tmp').html(p.tmp);
+    $('#spo2').html(p.spo2);
+    $('#chol').html(p.chol);
+    $('#weight').html(p.weight);
   };
 
 })(window);
