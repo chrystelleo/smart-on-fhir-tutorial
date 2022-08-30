@@ -33,7 +33,7 @@
 
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
-            lname = patient.name[0].family.join(' ');
+            lname = patient.name[0].family;  //.join(' ');
           }
 
           var height = byCodes('8302-2');
@@ -46,7 +46,7 @@
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
-          //p.lname = lname;
+          p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
 
           if (typeof systolicbp != 'undefined')  {
