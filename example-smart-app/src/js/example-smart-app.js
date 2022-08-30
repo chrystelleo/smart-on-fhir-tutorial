@@ -63,12 +63,12 @@
           console.log(allergies[1].code.text);
           for(var i=0;i<allergyLen;i++){
             var reactionStr = [];
-            if(allergies[i].reaction !== undefined){
-              console.log(allergies[i].code.text);
+            console.log(allergies[i].code.text);
+            if(allergies[i].reaction !== undefined){              
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
                 reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
               }
-              allergyTable += "<tr><td>"+allergies[i].code.text+"</td><td>"+reactionStr.join(",")+"</td></tr>";
+              allergyTable += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactionStr.join(", ")+"</td></tr>";
             }
             if(allergyLen ===0){
                 allergyTable =+ "<tr><td>No Allergies Documented</td></tr>";
