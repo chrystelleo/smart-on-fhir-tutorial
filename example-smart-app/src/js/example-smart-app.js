@@ -58,7 +58,19 @@
           var weight = byCodes('29463-7');
           var allergyTable = "<table>";
           var allergyLen = allergies.length;
-
+          for(var 1=0;i<allergyLen;i++){
+            var reactionStr = [];
+            if(allergies[i].reaction !== undefined){
+              for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
+                reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
+              }
+              allergyTable += "<tr><td>"+allergies[i].code.text+"</td><td>"+reactionStr.join(",")+"</td></tr>";
+            }
+            if(allergyLen ===0){
+                allergyTable =+ "<tr><td>No Allergies Documented</td></tr>";
+            }
+          }
+          allergyTable =+ "</table>";
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -80,6 +92,7 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
+          p.alg = allergyTable;
           ret.resolve(p);
         });
       } else {
@@ -107,6 +120,7 @@
       spo2: {value: ''},
       chol: {value: ''},
       weight: {value: ''},
+      alg: {value: ''},
     };
   }
 
@@ -154,6 +168,7 @@
     $('#spo2').html(p.spo2);
     $('#chol').html(p.chol);
     $('#weight').html(p.weight);
+    $('#alg').html(p.alg);
   };
 
 })(window);
