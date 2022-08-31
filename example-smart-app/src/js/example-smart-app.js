@@ -56,7 +56,7 @@
           var chol = byCodes('32309-7');
           var weight = byCodes('29463-7');
           var allergiesOut = "<table>";
-          var allergyLen = allergies.length;
+          //var allergyLen = allergies.length;
           console.log(allergyLen);
           for(var i=0;i<allergyLen;i++){
             var reactions = [];
@@ -66,15 +66,15 @@
                 reactions.push(allergies[i].reaction[j].manifestation[0].text);
                 //console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text);
               }
-              allergiesOut += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactions.join(", ")+"</td></tr>";
+              allergiesOut += "Allergy code: "+allergies[i].code.text+" Reaction: "+reactions.join(", ")+"</br>";
               console.log("Allergy code: "+allergies[i].code.text+" Reaction: "+reactions.join(", "));
             }
             if(allergyLen === 0){
-                allergiesOut =+ "<tr><td>No Known Allergies</td></tr>";
+                allergiesOut =+ "No Known Allergies";
             }
           }
-          allergiesOut =+ "</table>";
-          allergiesOut = "Getting anything out";
+          //allergiesOut =+ "</table>";
+          //allergiesOut = "Getting anything out";
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
