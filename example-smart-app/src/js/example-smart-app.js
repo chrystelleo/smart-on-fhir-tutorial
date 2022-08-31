@@ -55,25 +55,26 @@
           var spo2 = byCodes('2708-6');
           var chol = byCodes('32309-7');
           var weight = byCodes('29463-7');
-          var allergyTable = "<table>";
+          var allergiesOut = "<table>";
           var allergyLen = allergies.length;
           console.log(allergyLen);
           for(var i=0;i<allergyLen;i++){
-            var reactionStr = [];
+            var reactions = [];
             //console.log(allergies[i].code.text);
             if(allergies[i].reaction !== undefined){              
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
-                reactionStr.push(allergies[i].reaction[j].manifestation[0].text);
+                reactions.push(allergies[i].reaction[j].manifestation[0].text);
                 //console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text);
               }
-              allergyTable += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactionStr.join(", ")+"</td></tr>";
-              console.log(" Allergy code: "+allergies[i].code.text+" Reaction: "+reactionStr.join(", "));
+              allergiesOut += "<tr><td>Allergy code: "+allergies[i].code.text+"</td><td>Reaction: "+reactions.join(", ")+"</td></tr>";
+              console.log("Allergy code: "+allergies[i].code.text+" Reaction: "+reactions.join(", "));
             }
             if(allergyLen === 0){
-                allergyTable =+ "<tr><td>No Allergies Documented</td></tr>";
+                allergiesOut =+ "<tr><td>No Known Allergies</td></tr>";
             }
           }
-          allergyTable =+ "</table>";
+          allergiesOut =+ "</table>";
+          allergiesOut = "Getting anything out";
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -95,7 +96,7 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
-          p.allergies = allergyTable;
+          p.allergies = allergiesOut;
           ret.resolve(p);
         });
       } else {
