@@ -55,8 +55,8 @@
           var spo2 = byCodes('2708-6');
           var chol = byCodes('32309-7');
           var weight = byCodes('29463-7');
-          var allergiesOut = "<table>";
-          //var allergyLen = allergies.length;
+          //var allergiesOut = "<table>";
+          var allergyLen = allergies.length;
           console.log(allergyLen);
           for(var i=0;i<allergyLen;i++){
             var reactions = [];
