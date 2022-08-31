@@ -74,7 +74,7 @@
                 allergiesOut =+ "No Known Allergies";
             }
           }
-          allergiesWithTable =+ "<table><tr><td><b>Allergy</b></td><td><b>Reactions</b></td></tr>"+allergiesOut+"</table>";
+          allergiesWithTable =+ "<table>"+allergiesOut+"</table>";
           console.log(allergiesOut);
           console.log(allergiesWithTable);
           var p = defaultPatient();
