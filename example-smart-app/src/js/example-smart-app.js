@@ -67,14 +67,14 @@
                 reactions.push(allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
                 console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
               }
-              allergiesOut += "Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", ")+"</br>";
+              allergiesOut += "<tr><td>Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", ")+"</td></tr>";
               console.log("Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", "));
             }
             if(allergyLen === 0){
                 allergiesOut =+ "No Known Allergies";
             }
           }
-          //allergiesOut =+ "</table>";
+          allergiesWithTable =+ "<table>"+allergiesOut+"</table>";
           console.log(allergiesOut);
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -97,7 +97,7 @@
           p.spo2 = getQuantityValueAndUnit(spo2[0]);
           p.chol = getQuantityValueAndUnit(chol[0]);
           p.weight = getQuantityValueAndUnit(weight[0]);
-          p.allergies = allergiesOut;
+          p.allergies = allergiesWithTable;
           ret.resolve(p);
         });
       } else {
@@ -173,7 +173,7 @@
     $('#spo2').html(p.spo2);
     $('#chol').html(p.chol);
     $('#weight').html(p.weight);
-    $('#allergies').html(p.allergies);
+    $('#allergy').html(p.allergies);
   };
 
 })(window);
