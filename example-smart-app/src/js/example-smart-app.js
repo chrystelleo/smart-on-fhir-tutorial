@@ -64,8 +64,8 @@
             //console.log(allergies[i].code.text);
             if(allergies[i].reaction !== undefined){              
               for(var j=0,jLen=allergies[i].reaction.length;j<jLen;j++){
-                reactions.push(allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity.code.text+") ");
-                console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity.code.text+") ");
+                reactions.push(allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
+                console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
               }
               allergiesOut += "Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", ")+"</br>";
               console.log("Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", "));
