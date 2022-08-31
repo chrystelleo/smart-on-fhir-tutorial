@@ -76,6 +76,7 @@
           }
           allergiesWithTable =+ "<table><tr><td><b>Allergy</b></td><td><b>Reactions</b></td></tr>"+allergiesOut+"</table>";
           console.log(allergiesOut);
+          console.log(allertgiesWithTable);
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
