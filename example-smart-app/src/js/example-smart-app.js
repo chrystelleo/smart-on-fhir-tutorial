@@ -67,14 +67,14 @@
                 reactions.push(allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
                 console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
               }
-              allergiesOut += "<tr><td>Allergy: "+allergies[i].code.text+"</td><td>Reactions: "+reactions.join(", ")+"</td></tr>";
+              allergiesOut += "<tr><td>"+allergies[i].code.text+"</td><td>"+reactions.join(", ")+"</td></tr>";
               console.log("Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", "));
             }
             if(allergyLen === 0){
                 allergiesOut =+ "No Known Allergies";
             }
           }
-          allergiesWithTable =+ "<table>"+allergiesOut+"</table>";
+          allergiesWithTable =+ "<table><tr><th>Allergy</th><th>Reactions</th></tr>"+allergiesOut+"</table>";
           console.log(allergiesOut);
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
