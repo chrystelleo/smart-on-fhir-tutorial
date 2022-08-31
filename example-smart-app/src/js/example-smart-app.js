@@ -67,7 +67,7 @@
                 reactions.push(allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
                 console.log("reaction: "+allergies[i].reaction[j].manifestation[0].text+" ("+allergies[i].reaction[j].severity+") ");
               }
-              allergiesOut += "<tr><td>Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", ")+"</td></tr>";
+              allergiesOut += "<tr><td>Allergy: "+allergies[i].code.text+"</td><td>Reactions: "+reactions.join(", ")+"</td></tr>";
               console.log("Allergy: "+allergies[i].code.text+"\t\t\tReactions: "+reactions.join(", "));
             }
             if(allergyLen === 0){
